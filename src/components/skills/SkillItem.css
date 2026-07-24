@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  height: 100%;
 }
 
 .skill-item__stem-top {
@@ -48,6 +49,7 @@
 .skill-item__card {
   margin-top: var(--space-3);
   width: 100%;
+  flex: 1;
   background: var(--surface-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
