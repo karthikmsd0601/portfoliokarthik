@@ -1,0 +1,38 @@
+.site-footer {
+  padding-block: 0 clamp(var(--space-4), 5vw, var(--space-7));
+}
+
+.site-footer__container {
+  display: flex;
+}
+
+.site-footer__panel {
+  width: 100%;
+  background: var(--footer-background);
+  color: var(--footer-text);
+  border-radius: var(--radius-lg);
+  padding: clamp(var(--space-6), 7vw, var(--space-9)) clamp(var(--space-3), 6vw, var(--space-7));
+  text-align: center;
+}
+
+.site-footer__brand {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 1.6vw + 1rem, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  margin-bottom: var(--space-2);
+}
+
+.site-footer__role {
+  font-size: var(--fs-body-lg);
+  color: var(--text-on-dark-muted);
+  margin-bottom: var(--space-2);
+}
+
+.site-footer__tagline {
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--text-on-dark-muted);
+  max-width: 32rem;
+  margin-inline: auto;
+}

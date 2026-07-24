@@ -1,0 +1,77 @@
+:root {
+  /* Color system — sampled from the reference design (monochromatic, photography/logos keep native color) */
+  --page-background: #ffffff;
+  --text-primary: #111111;
+  --text-secondary: #4a4a4a;
+  --text-on-dark: #ffffff;
+  --text-on-dark-muted: rgba(255, 255, 255, 0.72);
+
+  --border-light: #dcdcdc;
+  --border-dark: #111111;
+
+  --surface-muted: #ededed;
+  --surface-card: #ffffff;
+
+  --cta-background: #000000;
+  --cta-text: #ffffff;
+
+  --footer-background: #000000;
+  --footer-text: #ffffff;
+
+  --node-dark-bg: #141414;
+  --node-light-bg: #ffffff;
+
+  --shadow-soft: 0 4px 18px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-card-hover: 0 18px 40px rgba(0, 0, 0, 0.16);
+
+  /* Typography — editorial serif system. Figma's exact embedded typeface could not be
+     retrieved (PDF font dictionaries were inside compressed object streams), so
+     Source Serif 4 (self-hosted variable font) is used site-wide per project direction,
+     with Georgia/Cambria as the system-font fallback chain. */
+  --font-serif: 'Source Serif 4', Georgia, Cambria, 'Times New Roman', serif;
+
+  /* Type scale — modular, ~1.25 ratio, both hero blocks share --fs-hero-text */
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-nav: 1.125rem;
+  --fs-body: 1.0625rem;
+  --fs-body-lg: 1.125rem;
+  --fs-hero-text: clamp(1.0625rem, 0.9vw + 0.7rem, 1.25rem);
+  --fs-section-heading: clamp(1.75rem, 2vw + 1rem, 2.25rem);
+  --fs-contact-heading: clamp(2.25rem, 3vw + 1rem, 3rem);
+  --fs-skill-title: 1.0625rem;
+  --fs-skill-desc: 0.875rem;
+  --fs-small: 0.875rem;
+
+  /* 8px baseline spacing grid — every gap/padding token is a multiple of 8px */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 80px;
+  --space-9: 96px;
+  --space-10: 120px;
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-padding: clamp(var(--space-3), 5vw, var(--space-8));
+  /* Applied as padding-block (top AND bottom) on every section, so two
+     adjacent sections stack to 2x this value at their shared boundary —
+     kept small deliberately to avoid oversized gaps between sections. */
+  --section-padding-y: clamp(var(--space-2), 3vw, var(--space-4));
+
+  --radius-sm: var(--space-1);
+  --radius-md: var(--space-2);
+  --radius-lg: var(--space-3);
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-hover: 220ms;
+  --dur-reveal: 500ms;
+  --stagger: 90ms;
+}
