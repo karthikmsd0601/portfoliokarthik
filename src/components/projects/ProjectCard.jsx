@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import './ProjectCard.css'
 
 export default function ProjectCard({ project, index }) {
   return (

@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import './SkillItem.css'
 
 export default function SkillItem({ skill, index }) {
-  const { title, description, Icon, treatment } = skill
+  const { title, description, image } = skill
 
   return (
     <motion.div
@@ -13,15 +13,19 @@ export default function SkillItem({ skill, index }) {
       transition={{ duration: 0.4, delay: index * 0.08 }}
     >
       <div className="skill-item__stem-top" aria-hidden="true" />
-      <motion.div
-        className={`skill-item__node skill-item__node--${treatment}`}
+      <motion.img
+        src={image}
+        alt=""
+        aria-hidden="true"
+        className="skill-item__node"
+        width={64}
+        height={64}
+        loading="lazy"
         initial={{ scale: 0.6, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.35, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <Icon className="skill-item__icon" />
-      </motion.div>
+      />
       <div className="skill-item__stem-bottom" aria-hidden="true" />
 
       <motion.div

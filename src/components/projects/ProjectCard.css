@@ -1,9 +1,11 @@
 .project-card {
   display: block;
   position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 76.26%; /* 408 / 535 — reliable across grid contexts, unlike aspect-ratio */
   border-radius: var(--radius-md);
   overflow: hidden;
-  aspect-ratio: 535 / 408;
   box-shadow: var(--shadow-card);
   background: var(--surface-muted);
   transition: transform var(--dur-hover) var(--ease-standard), box-shadow var(--dur-hover) var(--ease-standard);
@@ -16,6 +18,8 @@
 }
 
 .project-card__image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;

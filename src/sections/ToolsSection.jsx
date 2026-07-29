@@ -7,12 +7,22 @@ import './ToolsSection.css'
 function ToolList({ ariaHidden = false }) {
   return (
     <div className="tools__list" aria-hidden={ariaHidden || undefined}>
-      {tools.map((tool) => (
-        <div className="tools__item" key={tool.id}>
-          <tool.Logo className="tools__logo" />
-          <span className="tools__name">{tool.name}</span>
-        </div>
-      ))}
+      {tools.map((tool) =>
+        tool.image ? (
+          <img
+            key={tool.id}
+            src={tool.image}
+            alt={tool.name}
+            className="tools__lockup"
+            loading="lazy"
+          />
+        ) : (
+          <div className="tools__item" key={tool.id}>
+            <tool.Logo className="tools__logo" />
+            <span className="tools__name">{tool.name}</span>
+          </div>
+        ),
+      )}
     </div>
   )
 }

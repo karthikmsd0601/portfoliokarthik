@@ -54,6 +54,12 @@
   height: clamp(36px, 4vw, 44px);
 }
 
+.tools__lockup {
+  height: clamp(40px, 4.5vw, 52px);
+  width: auto;
+  flex-shrink: 0;
+}
+
 .tools__name {
   font-family: var(--font-serif);
   font-weight: 600;

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { sendContactEmails } from '../../lib/emailjs'
 import './ContactForm.css'
 
 const initialValues = { name: '', email: '', subject: '', message: '' }
@@ -35,10 +36,11 @@ export default function ContactForm() {
 
     setStatus('loading')
     try {
-      await new Promise((resolve) => setTimeout(resolve, 900))
+      await sendContactEmails(values)
       setStatus('success')
       setValues(initialValues)
-    } catch {
+    } catch (error) {
+      console.error('Failed to send contact form emails:', error)
       setStatus('error')
     }
   }
