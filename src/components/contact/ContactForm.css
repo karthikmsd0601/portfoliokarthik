@@ -98,14 +98,6 @@
   cursor: not-allowed;
 }
 
-.contact-form__status {
-  min-height: 1.5em;
-  margin-top: var(--space-2);
-  font-size: var(--fs-small);
-  color: var(--text-secondary);
-  text-align: center;
-}
-
 @media (max-width: 640px) {
   .contact-form__row {
     grid-template-columns: 1fr;

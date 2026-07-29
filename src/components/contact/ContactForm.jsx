@@ -1,6 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { sendContactEmails } from '../../lib/emailjs'
+import Toast from '../common/Toast'
 import './ContactForm.css'
+
+const TOAST_DURATION = 5000
 
 const initialValues = { name: '', email: '', subject: '', message: '' }
 
@@ -21,6 +24,21 @@ export default function ContactForm() {
   const [values, setValues] = useState(initialValues)
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle')
+  const [toast, setToast] = useState(null)
+  const dismissTimer = useRef(null)
+
+  useEffect(() => () => clearTimeout(dismissTimer.current), [])
+
+  const showToast = (message, variant) => {
+    clearTimeout(dismissTimer.current)
+    setToast({ message, variant })
+    dismissTimer.current = setTimeout(() => setToast(null), TOAST_DURATION)
+  }
+
+  const dismissToast = () => {
+    clearTimeout(dismissTimer.current)
+    setToast(null)
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -39,9 +57,11 @@ export default function ContactForm() {
       await sendContactEmails(values)
       setStatus('success')
       setValues(initialValues)
+      showToast('Thanks — your message has been sent. I’ll reply within 24 hours.', 'success')
     } catch (error) {
       console.error('Failed to send contact form emails:', error)
       setStatus('error')
+      showToast('Something went wrong. Please try again.', 'error')
     }
   }
 
@@ -132,12 +152,9 @@ export default function ContactForm() {
         <button type="submit" className="contact-form__submit" disabled={status === 'loading'}>
           {status === 'loading' ? 'Sending…' : 'Send message'}
         </button>
-
-        <div className="contact-form__status" role="status" aria-live="polite">
-          {status === 'success' && 'Thanks — your message has been sent. I’ll reply within 24 hours.'}
-          {status === 'error' && 'Something went wrong. Please try again.'}
-        </div>
       </form>
+
+      <Toast message={toast?.message} variant={toast?.variant} onDismiss={dismissToast} />
     </div>
   )
 }
