@@ -34,6 +34,6 @@ export const projects = [
     subtitle: 'Case Study',
     image: medcure,
     alt: 'Medcure healthcare app case study shown on a laptop and phone mockup',
-    href: 'https://www.behance.net/gallery/253187309/Instagram-Post-Campaign',
+    href: 'https://www.behance.net/gallery/253237717/Medcure-Simplifying-Healthcare-Through-Better-UX',
   },
 ]
